@@ -1,0 +1,62 @@
+@font-face {
+  font-family: 'icomoon';
+  src:  url('icomoon.eot?ms2iv1');
+  src:  url('icomoon.eot?ms2iv1#iefix') format('embedded-opentype'),
+    url('icomoon.ttf?ms2iv1') format('truetype'),
+    url('icomoon.woff?ms2iv1') format('woff'),
+    url('icomoon.svg?ms2iv1#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-right-bottom-select:before {
+  content: "\e90a";
+}
+.icon-step_circle_off:before {
+  content: "\e909";
+}
+.icon-copy:before {
+  content: "\e905";
+}
+.icon-inset-row-b:before {
+  content: "\e906";
+}
+.icon-delete-row:before {
+  content: "\e907";
+}
+.icon-inset-row-f:before {
+  content: "\e908";
+}
+.icon-seach-b:before {
+  content: "\e900";
+}
+.icon-love-off:before {
+  content: "\e901";
+}
+.icon-love-on:before {
+  content: "\e902";
+}
+.icon-phone-round:before {
+  content: "\e903";
+}
+.icon-login-out:before {
+  content: "\e904";
+}
+.icon-shopping-cart:before {
+  content: "\e912";
+}

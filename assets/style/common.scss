@@ -1,0 +1,799 @@
+/*
+ * @desc 公共样式
+ * @updata 2017-11-01 10.36
+ */
+ @import './global.scss';
+ 
+ html {
+   height: 100%;
+   box-sizing: border-box; // overflow: hidden;
+ }
+ 
+ /* @module Reset */
+ 
+ ::-ms-clear,
+ ::-ms-reveal {
+   display: none;
+ }
+ 
+ body {
+   min-width: 1200px;
+   padding: 0px;
+   margin: 0px;
+   height: 100%;
+   padding: 0px !important;
+   margin: 0px;
+   -moz-osx-font-smoothing: grayscale;
+   -webkit-font-smoothing: antialiased;
+   text-rendering: optimizeLegibility;
+   font-family: Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Arial, sans-serif;
+   font-size: 12px;
+  //  overflow: hidden;
+   overflow-x: auto;
+   background-color: #f5f5f5;
+ }
+ 
+ *,
+ *:before,
+ *:after {
+   box-sizing: inherit;
+ }
+ 
+ a:focus,
+ a:active {
+   outline: none;
+ }
+ 
+ a,
+ a:focus,
+ a:hover {
+   cursor: pointer;
+   color: $light-blue;
+   text-decoration: none;
+ }
+ 
+ h1,
+ h2 {
+   font-weight: bold;
+ }
+ 
+ ul {
+   padding: 0;
+   list-style-type: none;
+ }
+ 
+ em {
+   font-style: normal;
+   color: $em-color;
+   font-size: 12px;
+ }
+ 
+ .clearfix {
+   &:after {
+     display: block;
+     height: 0;
+     font-size: 0;
+     content: " ";
+     clear: both;
+     visibility: hidden;
+   }
+ }
+ 
+ .p10 {
+   padding: 10px !important;
+ }
+ 
+ /* End Reset */
+ 
+ /* @module Command */
+ 
+ .tl {
+   text-align: left;
+ }
+ 
+ .tc {
+   text-align: center;
+ }
+ 
+ .tr {
+   text-align: right;
+ }
+ 
+ .fl {
+   float: left;
+ }
+ 
+ .fr {
+   float: right
+ }
+ 
+ /* End Command */
+ 
+ /* @module Gird */
+ 
+ .container {
+   height: 100%;
+   text-align: center; // background-color: $bg-color;
+   overflow: hidden;
+   .center-nav {
+     position: relative;
+     width: 240px;
+     height: 100%;
+   }
+   .main {
+     width: 1200px;
+     height: 100%;
+     margin: 0 auto;
+     .el-scrollbar {
+       height: calc(100% - 60px);
+       .el-scrollbar__wrap {
+         overflow: hidden;
+         overflow-y: scroll;
+       }
+     }
+   }
+   .content {
+     position: relative;
+     padding: 0 20px;
+     overflow: auto;
+   }
+ }
+ 
+ /* End Gird */
+ 
+ /* @module Panel */
+ 
+ .panel {
+   margin: 20px 0 30px;
+   border: solid 1px $border-color;
+   background-color: #fff;
+   .panel-hd {
+     position: relative;
+     height: 40px;
+     border-bottom: solid 1px $border-color;
+     background-color: $bg-color;
+     text-align: left;
+     &>.title {
+       float: left;
+       height: 100%;
+       margin: 0 12px;
+       padding: 0 2px;
+       line-height: 40px;
+       border-bottom: solid 3px transparent;
+       font-size: $base-font;
+       color: $font-color;
+       font-weight: normal;
+       max-width: 900px;
+       white-space: nowrap;
+       overflow: hidden;
+       text-overflow: ellipsis;
+       &.active {
+         border-bottom: solid 3px #a79758;
+         font-weight: bold;
+       }
+     }
+   }
+   .panel-bd {
+     padding-top: 10px;
+   }
+   .el-table{ // 去除panel内的table 的左右边框
+     border-left: 0;
+     tr{
+       td:last-child, th:nth-last-child(2){
+         border-right: 0;
+       }
+     }
+     .el-input input,.el-select input{
+       height: 30px!important;
+       line-height: 30px!important;
+     }
+     &::before,&::after{
+       background-color: transparent;
+     }
+   }
+   .el-tabs .el-tabs__header{
+     border-width: 1px 0;
+   }
+ }
+ 
+ /* End Panel */
+ 
+ /* 表格上方的操作和数据条 */
+ 
+ .search-query-bar {
+   padding: 10px 20px;
+   line-height: 34px !important;
+   text-align: left;
+   .el-input {
+     .el-input__inner {
+       height: 34px;
+       line-height: 1;
+     }
+   }
+   .el-date-editor {
+     height: 34px !important;
+   }
+ }
+ 
+ /* End 表格上方的操作和数据条 */
+ 
+ /* @module 自定义按钮 */
+ 
+ .buttons {
+   padding: 20px 0 20px;
+   text-align: left;
+   font-size: 0;
+ }
+ 
+ .btn {
+   display: inline-block;
+   width: 100px;
+   height: 32px;
+   vertical-align: middle;
+   line-height: 30px !important;
+   padding: 0 !important;
+   font-family: Microsoft YaHei, Arial, sans-serif, Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB;
+   font-size: $base-font;
+   border: solid 1px $blue;
+   border-radius: 4px;
+   color: $white;
+   text-align: center;
+   cursor: pointer;
+   &+.btn {
+     margin-left: 10px;
+   }
+   &.btn-primary {
+     background-color: $blue;
+     border-color: $blue;
+     &:hover {
+       background-color: #0683d9;
+       border-color: #0683d9;
+       color: $white;
+     }
+   }
+   &.btn-gray {
+     background-color: #e9e9e9;
+     border-color: #d7d7d7;
+     color: $font-color;
+     &:hover {
+       background-color: #f9f9f9;
+       border-color: #d7d7d7;
+       color: $font-color;
+     }
+   }
+   &.btn-reset {
+     background-color: #fff;
+     border-color: #d7d7d7;
+     color: $font-color;
+     &:hover {
+       background-color: #f9f9f9;
+       border-color: #d7d7d7;
+       color: $font-color;
+     }
+   }
+ }
+ .uploader{
+   display: inline-block;
+   &.image-uploader{
+     vertical-align: top;
+     margin-top: 60px;
+     margin-left: 25px;
+   }
+ }
+ /* End 自定义按钮
+ /* @module 自定义返回按钮样式 */
+ 
+ .btn-back {
+   position: absolute;
+   top: 32px;
+   right: 20px;
+   z-index: 10;
+   width: 60px;
+   height: 28px;
+   padding: 0;
+   line-height: 28px;
+   color: $gray;
+   font-size: 14px;
+   border: 1px solid #d7d7d7;
+   border-radius: 1px;
+   background-color: #fff;
+   cursor: pointer;
+   @include inner-glow(rgba(255, 255, 255, .5));
+   &:hover {
+     border-color: #d7d7d7;
+     color: $gray;
+   }
+   i {
+     padding-right: 4px;
+     &::before {
+       font-weight: 900;
+       color: #40a2e5;
+     }
+   }
+ }
+ 
+ /* End 自定义返回按钮样式 */
+ 
+ /* @module 分页 */
+ 
+ .pagination {
+   @include radius(4px);
+   text-align: left;
+   font-size: 0;
+   >a {
+     display: inline-block;
+     min-width: 30px;
+     height: 22px;
+     padding: 0 2px;
+     line-height: 22px;
+     margin-right: 5px;
+     text-align: center;
+     font-size: 12px;
+     box-sizing: border-box;
+     @include exlips;
+     &.active,
+     &:hover {
+      color: $blue;
+    }
+     &.active,
+     &.disabled {
+       cursor: default;
+     }
+     &.disabled {
+       color: $em-color;
+     }
+     &.prev {
+       width: 60px;
+     }
+     &.next {
+       width: 60px;
+     }
+     &.go {
+       @include radius(4px);
+       border-width: 1px;
+     }
+   }
+   >span {
+     display: inline-block;
+     width: 22px;
+     height: 22px;
+     color: $font-color;
+     font-size: 20px;
+     vertical-align: top;
+     text-align: center;
+     &.txt {
+       line-height: 22px;
+       font-size: 12px;
+       border: 0;
+       vertical-align: top;
+       &:nth-child(1) {
+         width: 2px;
+       }
+     }
+     &.txt-count {
+       width: auto;
+       float: right;
+       line-height: 22px;
+       font-size: 12px;
+       border: 0;
+       vertical-align: top;
+       white-space: nowrap;
+     }
+   }
+   >input.current {
+     width: 40px;
+     height: 22px;
+     border: 1px solid $border-color;
+     @include radius(3px);
+     vertical-align: top;
+     text-align: center;
+     color: $gray;
+     font-size: $small-font;
+   }
+   .dropdown {
+     margin-right: 10px;
+     float: left;
+     position: relative;
+     line-height: 20px;
+     border: 1px solid $border-color;
+     border-radius: 2px;
+     cursor: pointer;
+     >span {
+       display: inline-block;
+       padding: 0 10px;
+       font-size: 14px;
+       color: $font-color;
+       border: 0;
+       vertical-align: middle;
+       >i {
+         display: inline-block;
+         margin-left: 5px;
+         margin-top: 3px;
+         border: 7px solid;
+         border-color: $border-color transparent transparent;
+         vertical-align: middle;
+       }
+     }
+     .dropdown-list {
+       display: none;
+       position: absolute;
+       left: 0;
+       right: 0;
+       z-index: 100;
+       bottom: 22px;
+       background-color: $white;
+       border: 1px solid $border-color;
+       border-radius: 2px;
+       text-align: left;
+       a {
+         display: block;
+         padding-left: 10px;
+         font-size: 14px;
+         color: $font-color;
+       }
+     }
+     &:hover {
+       .dropdown-list {
+         display: block;
+       }
+     }
+   }
+ }
+ 
+ /* End 分页 */
+ 
+ 
+ /* @module 搜索选项及数据表格 */
+ .list-query-form{
+   height: 50px; // 新样式，旧版为42px
+   border-bottom: 1px solid $border-color;
+   overflow: hidden;
+   &.all{
+     height: auto;
+   }
+   .el-form-item{
+     margin-bottom: 7px; // 新样式，旧版为10px
+     .el-form-item__label{
+       // padding: 9px 8px 9px 0; // 新样式
+       font-size: 12px;
+     }
+     .el-form-item__content{
+       line-height: 40px; // 新样式
+       .el-input__inner{
+         height: 32px;
+         border-radius: 3px;
+       }
+       .el-date-editor--daterange{
+         margin-top: 1px;// 新样式
+         .el-input{
+           width: 100%;
+         }
+       }
+     }
+     .el-select{
+       display: block;
+     }
+   }
+   .btn{
+     margin-top: 4px;
+   }
+ }
+ .more-list-query {
+   height: 22px;
+   line-height: 22px;
+   color: $blue;
+   font-size: 12px;
+   text-align: center;
+   background-color: $bg-color;
+   border-bottom: 1px solid $border-color;
+   cursor: pointer;
+ }
+ /* end 搜索选项及数据表格 */
+ 
+ /* @module 重写el-element样式 */
+ 
+ /* 控件 */
+ 
+ .el-input {
+   max-width: 410px;
+   &.el-date-editor {
+     width: 100%;
+     max-width: 410px;
+   }
+   &.short {
+     input {
+       max-width: 250px;
+     }
+   }
+   &.number {
+     input {
+       max-width: 120px;
+     }
+   }
+ }
+ 
+ .el-textarea {
+   max-width: 500px;
+ }
+ 
+ .el-select {
+   max-width: 410px;
+   &.short {
+     max-width: calc(403px/3);
+   }
+ }
+ 
+ .el-checkbox+.el-checkbox {
+   margin-left: 15px;
+ }
+ 
+ /* 新版本样式 2018-04-23 */
+ 
+ .el-loading-mask.is-fullscreen {
+   background-color: rgba(0, 0, 0, 0.1);
+ }
+ 
+ /* End 控件 */
+ 
+ /* 表格 */
+ 
+ .list>.el-table {
+   border-width: 1px 0 0 0;
+ }
+ 
+ .el-table {
+   // 超链接按钮
+   .el-input input,
+   .el-select input {
+     height: 30px !important;
+     line-height: 30px !important;
+   }
+   .btn-link {
+     font-family: sans-serif;
+   }
+   td {
+     font-size: 12px;
+   }
+ }
+ 
+ /* End 表格 */
+ 
+ /* @module 重写el-element多选单选样式 */
+ 
+ .el-checkbox-group,
+ .el-form-item__content {
+   text-align: left;
+   color: $gray;
+ }
+ 
+ /* End 重写el-element多选单选样式 */
+ 
+ /* @module 重写el-element的tabs切换样式 */
+ 
+ .el-tabs {
+   padding-top: 0;
+   .el-tabs__header {
+     margin-bottom: 0;
+     .el-tabs__active-bar {
+       background-color: $blue;
+     }
+     .el-tabs__item {
+       &.is-active {
+        color:$blue;
+        font-weight: bold;
+       }
+     }
+     .el-tabs__nav-wrap::after{
+       height: 1px;
+     }
+     .el-tabs__nav-scroll{
+       padding-left: 10px;
+     }
+    }
+    .el-tabs__content{
+      border: none;
+      border-bottom: 1px solid #ddd;
+    }
+   .el-tab-pane {
+     background-color: #fff;
+     &>.el-row {
+       padding-top: 20px;
+       border: 1px solid $border-color;
+       border-top: none;
+       .sale-data,
+       .select-data,
+       .chart {
+         padding: 0 20px;
+       }
+     }
+   }
+ }
+ 
+ .red {
+   color: red;
+ }
+ 
+ /* 弹窗 */
+ 
+ .el-dialog__header {
+   padding-bottom: 20px !important;
+   text-align: left;
+   border-bottom: 1px solid $border-color;
+ }
+ 
+ .el-dialog__footer {
+   border-top: 1px solid $border-color;
+ }
+ 
+ /* End 弹窗 */
+ 
+ /* End 重写el-element的tabs切换样式*/
+ 
+ /* @module 选择城市 */
+ 
+ .city-dropdown {
+   float: left;
+   margin: 6px 20px 6px 9px;
+   width: 130px;
+   .el-input__inner {
+     height: 28px;
+     border: solid 1px #e5e5e5;
+   }
+   .el-cascader__label {
+     line-height: 28px;
+   }
+ }
+ 
+ /* End 选择城市 */
+ 
+ .el-form-item__label,
+ .el-form-item__content,
+ .el-input__inner,
+ .el-select-dropdown__item,
+ .el-radio__label,
+ .el-checkbox__label {
+   font-size: 12px !important;
+ }
+ 
+ .el-form-item.is-required .el-form-item__label {
+   font-weight: bold;
+ }
+ 
+ /* End 重写el-element样式 */
+ 
+ /* 弹窗样式重置 */
+ 
+ .el-message-box {
+   .el-message-box__btns {
+     button {
+       float: right;
+       margin: 2px 10px 20px 10px;
+     }
+   }
+ }
+ 
+ /* END 弹窗样式重置 */
+ 
+ /* 兼容微信头像显示问题 */
+ 
+ .wx-img {
+   width: 100%;
+   height: 100%;
+ }
+ 
+ /* END 兼容微信头像显示问题 */
+ 
+ /* 新版本样式 2018-04-23 */
+ 
+ .el-input__icon {
+   height: 32px;
+   line-height: 32px;
+ }
+ 
+ .el-date-editor .el-range-separator {
+   height: 32px;
+ }
+ 
+ .el-date-editor--daterange.el-input__inner {
+   width: 100%;
+   max-width: 360px;
+   box-sizing: border-box;
+   height: 32px;
+   vertical-align: middle;
+   margin-top: -8px;
+   line-height: 32px;
+   border-radius: 0;
+ }
+ 
+ .el-table td,
+ .el-table th {
+   padding: 2px 0;
+ }
+ 
+ .el-dropdown-menu__item:focus,
+ .el-dropdown-menu__item:not(.is-disabled):hover {
+   color: #606266;
+ }
+ 
+ .el-tabs__header {
+   padding-left: 30px;
+ }
+ 
+ .el-table .cell {
+   line-height: 30px;
+ }
+ 
+ .el-table .cell.el-tooltip {
+   height: 31px;
+   line-height: 31px;
+ }
+ 
+ .el-table .el-button {
+   padding: 0;
+ }
+ 
+ .el-tabs__content {
+   border: 1px solid #ddd;
+   border-top: none;
+ }
+ 
+ .el-radio-button__inner {
+   padding: 9px 20px;
+ }
+ 
+ .el-dialog {
+   position: absolute !important;
+   top: 50% !important;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   margin: 0 !important;
+ }
+ 
+ .informs .el-dialog__headerbtn .el-dialog__close {
+   color: #fff;
+ }
+ 
+ .el-table--border th:first-child .cell {
+   text-align: center;
+ }
+ 
+ .el-switch__input:focus~.el-switch__core {
+   outline: none;
+ }
+ 
+ /* END 新版本样式 2018-04-23 */
+ 
+ /* 文档图片容器 */
+ 
+ .article-img {
+   display: inline-block;
+   width: 200px;
+   height: 150px;
+   border-radius: 3px;
+   overflow: hidden;
+   img {
+     display: block;
+     width: 100%;
+   }
+ } 
+ /* end */
+
+/* 新版本样式 2018-09-03 */
+.el-table th.is-leaf{
+  text-align: center;
+  background-color: #f5f5f5;
+  color:#333;
+  font-weight: 500;
+  border-right: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+}
+.el-table--border{
+  border: 1px solid #ddd;
+  border-right: none;
+  border-bottom: none;
+  /deep/ td {
+    border-right: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+  }
+}
+/* end 新版本样式 2018-09-03 */
